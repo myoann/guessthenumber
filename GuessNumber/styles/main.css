@@ -1,0 +1,75 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+
+* {
+    margin:0;
+    padding:0;
+    font:12pt Arial;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color:#34495e;
+  color:white;
+}
+
+.alert {
+  margin-top:35px;
+  margin-left:25px;
+  padding: 15px;
+  width:500px;
+}
+
+.container-fluid, .row {
+  width: 100%;
+}
+
+.field {
+  display:flex;
+  position:relative;
+  margin:8em auto;
+  padding: 15px;
+  width:27%;
+  flex-direction:row;
+
+}
+
+.field>input[type=number],
+.field>button {
+  display:block;
+  font:1.2em 'Montserrat Alternates';
+}
+
+.field>input[type=number] {
+  color:black;
+  flex:1;
+  padding:0.6em;
+  border:0.2em solid rgb(26, 188, 156);
+}
+
+.field>button {
+  padding:0.6em 0.8em;
+  background-color:rgb(26, 188, 156);
+  color:white;
+  border:none;
+}
+
+h2 {
+  padding-left: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 1em;
+}
+
+li {
+  width: 5em;
+  height: 5em;
+  margin: 1em;
+  line-height: 5em;
+  border: 1px solid white;
+  text-align: center;
+  float: left;
+  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.22), 0 8px 38px rgba(0, 0, 0, 0.3);
+}

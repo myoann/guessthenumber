@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Guess the number">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Guess the number">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+	<title>Guess the number</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="styles/main.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+</head>
+<body ng-controller="appCtrl">
+	<!-- 1h30 back -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-6" col-sm-3">
+				<div ng-show="guessValue<0" class="alert alert-warning">The guess is too high</div>
+
+				<div ng-show="guessValue>0" class="alert alert-warning">The guess is too low</div>
+
+				<div ng-show="guessValue===0" class="alert alert-success">Congratulations! You found the correct number after <span class="badge" ng-bind="noOfTires"></span> guesses!<br/>
+				Seconds taken to guess the correct number : {{ timeTaken }} seconds</div>
+
+				<div><h2>Last 5 guesses</h2></div>
+				<ul>
+					<li ng-repeat="last in lastFive track by $index" >{{ last }}</li>
+				</ul>
+			</div>
+
+			<div class="clearfix visible-xs"></div>
+
+			<div class="field col-xs-6 col-sm-3" id="searchform">
+				<input ng-model="guess" id="searchterm" type="number" placeholder="What is your guess?" />
+				<button class="btn btn-primary btn-lg btn-sm" id="search" ng-click="verifyGuess()">Verify</button>
+			</div>
+	</div>
+</body>
+</html>
